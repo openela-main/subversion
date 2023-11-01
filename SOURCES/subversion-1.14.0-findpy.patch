@@ -1,0 +1,11 @@
+--- subversion-1.14.0/build/find_python.sh.findpy
++++ subversion-1.14.0/build/find_python.sh
+@@ -26,7 +26,7 @@
+ for pypath in "$PYTHON" "$PYTHON2" "$PYTHON3" python python2 python3; do
+   if [ "x$pypath" != "x" ]; then
+     DETECT_PYTHON="import sys;sys.exit((sys.hexversion < $VERSION) and 1 or 0)"
+-    if "$pypath" -c "$DETECT_PYTHON" >/dev/null 2>/dev/null; then
++    if "$pypath" -c "$DETECT_PYTHON"; then
+       echo $pypath
+       exit 0
+     fi
